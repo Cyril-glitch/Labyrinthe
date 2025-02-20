@@ -17,6 +17,12 @@ typedef struct Hero
 
 }Hero;
 
+typedef struct Case
+{
+	char symbole;
+	int visible;
+}Case;
+
 int lireUser(char *chaine , int taille);
 
 int lireUserC();
