@@ -197,7 +197,7 @@ do
 		printf("\t\t Mais attention où vous mettez les pieds,vous pourriez tomber sur un piège...\n\n\n");
 
 
-		afficheHaze(&player,labyrinthe);
+		afficheLab(&player,labyrinthe);
 
 		printf("\n\t\tAppuyez sur z,q,s,d puis <ENTER> pour vous déplacer jusqu'a l'entrée du labyrinthe\n");
 		printf("\t\t\t\t  Astuce : Vous pouvez combiner des directions");
