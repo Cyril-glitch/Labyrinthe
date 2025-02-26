@@ -92,33 +92,28 @@ void afficheHaze(Hero* player,char salle[10][30])
 void afficheHaze3(Hero* player,Case salle[10][30])
 {//on veut que la fonction rende visible les case du labyrinthe uniquement une fois que le cuseur H et passer aux alentours 
 
-	
-	for(int i = 0 ; i <= player->y+2 ; i++)
-	{
-		
-		for(int j = 0 ; j <= player->x+2 ; j++)
-		{
-			if( i >= player->y-2 && j >= player->x -2)
-			{
-			     salle[i][j].visible = 1; 
-			}
-		}
+       
 
-	}
-	for(int i = 0 ; i < 10 ; i++)
-	{
+        for(int i = 0 ; i < 10 ; i++)
+	{		
 		printf("\t\t\t\t\t");
+
 		for(int j = 0 ; j <  30 ; j++)
 		{
-			if(salle[i][j].visible)
+			if( i <= player->y+1 && j <= player->x+1)
 			{
-			printf("%c",salle[i][j].symbole);
+				salle[i][j].visible = 1;
+			}
+			if(salle[i][j].visible)		
+			{
+
+				printf("%c",salle[i][j].symbole);
 			}
 		}
 
 		printf("\n");
-	}
 
+	}
 }
 
 
