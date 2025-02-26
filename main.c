@@ -49,16 +49,16 @@ do
 		                 "* ** ** ***** ****** **  *****",
 		                 "*    **              *     ***",
 		                 "******************************",};
-      Case labMode3[10][30];
+	Case labMode3[10][30];
 
-     for( int i = 0 ; i < 10 ; i++)
-{
-	for( int j = 0 ; j < 30 ; j ++)
+	for( int i = 0 ; i < 10 ; i++)
 	{
-		labMode3[i][j].symbole = labyrinthe[i][j];
-		labMode3[i][j].visible = 0 ;
+		for( int j = 0 ; j < 30 ; j ++)
+		{
+			labMode3[i][j].symbole = labyrinthe[i][j];
+			labMode3[i][j].visible = 0 ;
+		}
 	}
-}
 
 /*
 //emplacements des pieges et du trésor :
@@ -155,60 +155,60 @@ do
 	while(!player.win && player.nombredeVie >= 1 )
 	{       
 
-		curseurH(&player,labyrinthe);
+		curseurH3(&player,labMode3);
 	
 		if(player.y == 8 &&  player.x == 22 )
 		{
 
-			tresor(&player,labyrinthe);
+			tresor3(&player,labMode3);
 			player.win= 1 ;
 		}
 		else if (player.y == 2 && player.x ==8)
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 3  && player.x == 8 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 4 && player.x == 1 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 6 && player.x == 10 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 8 && player.x == 13 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 7 && player.x == 24 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 2 && player.x == 13 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 8 && player.x == 26 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 1  && player.x == 27 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
 		else if (player.y == 2 && player.x == 25 )
 		{
-			piege(&player,labyrinthe);
+			piege3(&player,labMode3);
 		}
         	printf("\n\t\t\t\t       Vous entrez dans le Labyrinthe...\n");
         	printf("\n\t\t\t\t    Parcourez le à la recherche du trésor\n");
 		printf("\t\t Mais attention où vous mettez les pieds,vous pourriez tomber sur un piège...\n\n\n");
 
 
-		afficheLab(&player,labyrinthe);
+		afficheHaze3(&player,labMode3);
 
 		printf("\n\t\tAppuyez sur z,q,s,d puis <ENTER> pour vous déplacer jusqu'a l'entrée du labyrinthe\n");
 		printf("\t\t\t\t  Astuce : Vous pouvez combiner des directions");
@@ -228,25 +228,25 @@ do
 		mv = lireUserC(); 
 	
 
-		if(mv == 'z' && labyrinthe[player.y-1][player.x] == ' ')//haut
+		if(mv == 'z' && labMode3[player.y-1][player.x].symbole == ' ')//haut
 		{
-			rmH(&player,labyrinthe);
+			rmH3(&player,labMode3);
 			player.y--;
 		}
-		else if(mv == 'q' && labyrinthe[player.y][player.x-1] == ' ')///gauche
+		else if(mv == 'q' && labMode3[player.y][player.x-1].symbole == ' ')///gauche
 		{
-			rmH(&player,labyrinthe);
+			rmH3(&player,labMode3);
 			player.x--;
 		}
 
-		else if(mv == 's' && labyrinthe[player.y+1][player.x] == ' ')//bas
+		else if(mv == 's' && labMode3[player.y+1][player.x].symbole == ' ')//bas
 		{       
-			rmH(&player,labyrinthe);
+			rmH3(&player,labMode3);
 			player.y++;
 		}
-		else if(mv == 'd' && labyrinthe[player.y][player.x+1] == ' ')//droite
+		else if(mv == 'd' && labMode3[player.y][player.x+1].symbole == ' ')//droite
 		{
-			rmH(&player,labyrinthe);
+			rmH3(&player,labMode3);
 			player.x++;
 		}
 
@@ -257,7 +257,7 @@ do
 	printf("\n\n\n\n");
 
 
-        afficheLab(&player,labyrinthe);
+        afficheLab3(&player,labMode3);
 	
 
         if(player.nombredeVie < 1)

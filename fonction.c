@@ -89,6 +89,54 @@ void afficheHaze(Hero* player,char salle[10][30])
 	}
 }
 
+void afficheHaze3(Hero* player,Case salle[10][30])
+{//on veut que la fonction rende visible les case du labyrinthe uniquement une fois que le cuseur H et passer aux alentours 
+
+	
+	for(int i = 0 ; i <= player->y+2 ; i++)
+	{
+		
+		for(int j = 0 ; j <= player->x+2 ; j++)
+		{
+			if( i >= player->y-2 && j >= player->x -2)
+			{
+			     salle[i][j].visible = 1; 
+			}
+		}
+
+	}
+	for(int i = 0 ; i < 10 ; i++)
+	{
+		printf("\t\t\t\t\t");
+		for(int j = 0 ; j <  30 ; j++)
+		{
+			if(salle[i][j].visible)
+			{
+			printf("%c",salle[i][j].symbole);
+			}
+		}
+
+		printf("\n");
+	}
+
+}
+
+
+void afficheLab3(Hero * player ,Case salle[10][30])
+{
+	for(int i = 0 ; i < 10 ; i++)
+	{
+		printf("\t\t\t\t\t");
+		for(int j = 0 ; j <  30 ; j++)
+		{
+			printf("%c",salle[i][j].symbole);
+		}
+
+		printf("\n");
+	}
+}
+
+
 
 
 int  infoHeros(Hero* player)
@@ -139,6 +187,20 @@ void curseurH(Hero* player , char salle[10][30])
 	}
 }
 
+void curseurH3(Hero* player , Case salle[10][30])
+{
+	int i = 0 , j =0 ;
+
+	i = player->y;
+	j = player->x;
+
+	if ( i != 0 && j != 0 )
+	{      
+		salle[i][j].symbole='H';
+	}
+}
+
+
 void piege(Hero* player , char salle[10][30])
 {
 	int i = 0 , j =0 ;
@@ -169,6 +231,41 @@ void tresor(Hero* player ,char salle[10][30])
 	player->win = 1;
 
 }
+
+
+void piege3(Hero* player ,Case salle[10][30])
+{
+	int i = 0 , j =0 ;
+
+	i = player->y;
+	j = player->x;
+
+	if ( i != 0 && j != 0 )
+	{      
+		salle[i][j].symbole='X';
+	}
+	player->nombredeVie--;
+	player->y = 1 ;
+	player->x = 1 ;
+}
+
+
+void tresor3(Hero* player ,Case salle[10][30])
+{
+	int i = 0 , j =0 ;
+
+	i = player->y;
+	j = player->x;
+
+	if ( i != 0 && j != 0 )
+	{      
+		salle[i][j].symbole='$';
+	}
+
+	player->win = 1;
+
+}
+
 int move(Hero* player,char salle[10][30])
 {
 
@@ -216,7 +313,7 @@ int move(Hero* player,char salle[10][30])
 
 void rmH(Hero* player , char salle[10][30])
 {
-	char curseur[] =" " ;
+	
 	int i = 0 , j =0 ;
 
 	i = player->y;
@@ -225,6 +322,21 @@ void rmH(Hero* player , char salle[10][30])
 	if ( i != 0 && j != 0 )
 	{      
 		salle[i][j]=' ' ;
+	}
+
+}
+
+void rmH3(Hero* player , Case salle[10][30])
+{
+	
+	int i = 0 , j =0 ;
+
+	i = player->y;
+	j = player->x;
+
+	if ( i != 0 && j != 0 )
+	{      
+		salle[i][j].symbole=' ' ;
 	}
 
 }
