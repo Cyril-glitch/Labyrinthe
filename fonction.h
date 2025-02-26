@@ -32,7 +32,7 @@ void viderBuffer();
 
 void afficheLab(Hero* player,char salle[10][30]);
 
-void afficheLab3(Hero * player ,Case salle[10][30]);
+void afficheNormal(Hero * player ,Case salle[10][30]);
 
 void afficheHaze(Hero* player,char salle[10][30]);
 

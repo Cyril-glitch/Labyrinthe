@@ -117,7 +117,7 @@ void afficheHaze3(Hero* player,Case salle[10][30])
 }
 
 
-void afficheLab3(Hero * player ,Case salle[10][30])
+void afficheNormal(Hero * player ,Case salle[10][30])
 {
 	for(int i = 0 ; i < 10 ; i++)
 	{
